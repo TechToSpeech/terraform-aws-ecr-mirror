@@ -24,7 +24,7 @@ As this module is essentially running a series of bash commands, it ensures idem
 
 ```
 module "ecr_mirror" {
-  source = "TechToSpeech/terraform-aws-ecr-mirror.git"
+  source  = "TechToSpeech/ecr-mirror/aws"
   aws_account_id = "123456544225"
   aws_region = "eu-west-1"
   docker_source = "wordpress:php7.4-apache"
