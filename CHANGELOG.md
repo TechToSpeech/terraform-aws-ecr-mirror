@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4
+
+Bugfix on executability of script
+
 ## 0.0.3
 
 Minor usage documentation update
