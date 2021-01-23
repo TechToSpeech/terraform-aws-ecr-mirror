@@ -11,7 +11,8 @@ variable "aws_account_id" {
 }
 
 variable "aws_profile" {
-    description = "The awscli profile name (located in the ~/.aws/credentials file) used to authenticate the ECR login and push."
+    description = "The awscli profile name (located in the ~/.aws/credentials file) used to authenticate the ECR login and push (Optional)"
+    default = ""
 }
 
 variable "ecr_repo_name" {

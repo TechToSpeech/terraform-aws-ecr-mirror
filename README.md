@@ -7,20 +7,24 @@ In late 2020, Docker Hub announced that the Hub service would begin limiting the
 
 The [AWS recommendation](https://aws.amazon.com/blogs/containers/advice-for-customers-dealing-with-docker-hub-rate-limits-and-a-coming-soon-announcement/) for those not wishing to upgrade to a paid plan is to mirror the Dockerhub image to their own AWS ECR repository. 
 
-This simple task requires a basic 'pull from Dockerhub-push to ECR' loop for which there exists no good bootstrapping solution (outside of a convolution such as a CodeBuild pipeline) for a new ECR repository that would look to use a Dockerhub image as its 'base' image which can then be used in subsequent builds without the pull limits. 
+This simple task requires a basic 'pull from Dockerhub-push to ECR' loop for which there exists no simple bootstrapping solution. The typical use case is a new ECR repository that would look to use a Dockerhub image as its 'base' image which can then be used in subsequent builds without the pull limits. 
 
 This module is a simple terraform `local-exec` provisioner which runs the required awscli and docker push commands to ECR, and can be woven in to your existing set-up. 
 
 ## Requirements
 
-- aws-cli installed and configured with a named [profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) that has permissions to push to the desired ECR repository
+- aws-cli v2 installed and configured with a named [profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) that has permissions to push to the desired ECR repository
 - [Docker installed](https://docs.docker.com/engine/install/) on the machine executing terraform, and permissions for the user executing terraform to run docker commands (e.g. by adding the user to the 'docker' user group)
+
+## Idempotence
+
+As this module is essentially running a series of bash commands, it ensures idempotence by triggering only when any of the values of the `docker_source`, `ecr_repo_name` or `ecr_repo_tag` variables are changed.
 
 ## Usage Example
 
 ```
 module "ecr_mirror" {
-  source = "./docker_init"
+  source = "TechToSpeech/terraform-aws-ecr-mirror.git"
   aws_account_id = "123456544225"
   aws_region = "eu-west-1"
   docker_source = "wordpress:php7.4-apache"
