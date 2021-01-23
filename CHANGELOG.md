@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5
+
+Remove region bias for push
+
 ## 0.0.4
 
 Bugfix on executability of script
