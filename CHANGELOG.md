@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6
+
+Added escaping of local-exec command path to handle Windows paths.
+
 ## 0.0.5
 
 Remove region bias for push
