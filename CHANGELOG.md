@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.7
+
+Added bash as command interpreter of local-exec.
+
 ## 0.0.6
 
 Added escaping of local-exec command path to handle Windows paths.
