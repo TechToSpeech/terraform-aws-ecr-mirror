@@ -25,5 +25,5 @@ variable "ecr_repo_tag" {
 
 variable "architecture" {
   description = "The override flag to pull an image of a specific architecture. e.g. `linux/arm64/v8`"
-  default = ""
+  default     = ""
 }

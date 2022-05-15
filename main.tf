@@ -9,6 +9,6 @@ resource "null_resource" "docker_pullpush" {
   }
   provisioner "local-exec" {
     interpreter = ["bash", "-c"]
-    command = "${local.module_path}/docker_pullpush.sh ${var.docker_source} ${var.aws_region} ${var.aws_account_id} ${var.ecr_repo_name} ${var.ecr_repo_tag} ${var.aws_profile} ${var.architecture}"
+    command     = "${local.module_path}/docker_pullpush.sh ${var.docker_source} ${var.aws_region} ${var.aws_account_id} ${var.ecr_repo_name} ${var.ecr_repo_tag} ${var.aws_profile} ${var.architecture}"
   }
 }
