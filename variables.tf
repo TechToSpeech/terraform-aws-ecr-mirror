@@ -22,3 +22,8 @@ variable "ecr_repo_name" {
 variable "ecr_repo_tag" {
   description = "The tag of the ECR repository image being pushed."
 }
+
+variable "architecture" {
+  description = "The override flag to pull an image of a specific architecture. e.g. `linux/arm64/v8`"
+  default = ""
+}

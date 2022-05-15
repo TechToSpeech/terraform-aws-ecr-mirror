@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+Added support for overriding the desired platform architecture of the docker image. (Note: Experimental mode must be enabled on your local docker client)
+
 ## 0.0.7
 
 Added bash as command interpreter of local-exec.
