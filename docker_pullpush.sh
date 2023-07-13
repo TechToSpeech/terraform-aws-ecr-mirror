@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ ${#6} -gt 0 ]]; then
     profile="--profile $6"
